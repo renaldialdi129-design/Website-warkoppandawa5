@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warkop pandawa 5 - Menu dan Harga</title>
+    <style>
+        /* Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body { 
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-image: url(gemi); /* Amber light background */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        h1, h2, h3 {
+            color: #8B4513; /* Brown kopi */
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #F59E0B; /* Amber */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #D97706;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background-image: url('Gemini_Generated_Image_ua2homua2homua2h.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #f5f5f5;
+        }
+
+        /* Section Common */
+        .section {
+            padding: 80px 0;
+        }
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .section p {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        /* About Section */
+        .about {
+            background-color: #fff;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .about img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .about-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .about-content p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        /* Menu Section */
+        .menu {
+            background-color: #f5f5f5;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .menu-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .menu-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .menu-item .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #F59E0B;
+            margin: 1rem 0;
+        }
+        .menu-item ul {
+            list-style: none;
+            text-align: left;
+        }
+        .menu-item li {
+            padding: 0.5rem 0;
+            color: #666;
+            border-bottom: 1px solid #eee;
+        }
+        .menu-category {
+            margin-bottom: 3rem;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .service-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .service-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .service-item ul {
+            list-style: disc;
+            text-align: left;
+            margin-left: 2rem;
+        }
+        .service-item li {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #f5f5f5;
+        }
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #8B4513;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .section h2 {
+                font-size: 2rem;
+            }
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Minuman & Makanan Lezat</h1>       
+            <p>Nikmati minuman es kopi & kopi panas dan makanan lezat dengan harga terjangkau</p>
+            <a href="#menu" class="btn">Lihat Menu</a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section menu">
+        <div class="container">
+            <h2>Daftar Menu</h2>
+            <p>Pilih dari berbagai minuman kopi dan makanan dengan harga transparan.</p>
+
+            <!-- Aneka Minuman -->
+            <div class="menu-category">
+                <h3 style="text-align: center; font-size: 2rem; margin-bottom: 2rem;">Aneka Minuman</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <img src="nutrisari.png" alt="Nutrisari">
+                        <h3>Nutrisari</h3>
+                        <div class="price">Rp 5.000</div>
+                        <p>Dengan rasa yang manis&segar rasakan di setiap tegukannya</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="es kopi.png" alt="Kopi dingin">
+                        <h3>Kopi dingin</h3>
+                        <div class="price">Rp 7.000</div>
+                        <p>Nikmati Kopi dalam Harmoni Nikmat Rasa</p>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <img src="kopi panas.png" alt="Kopi panas">
+                        <h3>Kopi panas</h3>
+                        <div class="price">Rp 4.000-5.000</div>
+                        <p>Dari aroma kopi sampai aftertaste, semua terasa pas di hati</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="es teh.png" alt="Es teh">
+                        <h3>Es teh tawar</h3>
+                        <div class="price">Rp 4.000</div>
+                        <p>Es Teh, Santai di Lidah, Hebat di Hati.</p>
+                    </div>
+                            <div class="menu-item">
+                        <img src="es teh.png" alt="Es teh">
+                        <h3>Es teh manis</h3>
+                        <div class="price">Rp 5.000</div>
+                        <p>Es Teh, Santai di Lidah, Hebat di Hati.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="teh hangat.png" alt="Teh panas">
+                        <h3>Teh panas tawar</h3>
+                        <div class="price">Rp 3.000</div>
+                        <p>Dengan rasa teh yang alami dan sedap</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="teh hangat.png" alt="Teh panas">
+                        <h3>Teh panas manis</h3>
+                        <div class="price">Rp 4.000</div>
+                        <p>Dengan rasa teh yang alami dan sedap</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aneka Makanan -->
+            <div class="menu-category">
+                <h3 style="text-align: center; font-size: 2rem; margin-bottom: 2rem;">Aneka Makanan</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <img src="kue.png" alt="kue">
+                        <h3>Kue</h3>
+                        <div class="price">Rp 2.000</div>
+                        <p>Nikmatilah deretan kue manis kami yang terbuat dengan cinta dan kelembutan</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="kerupuk.png" alt="Snack">
+                        <h3>Snack</h3>
+                        <div class="price">Rp 1.000-2.000</div>
+                        <p>Snack yang manis dan pedas memberikan sensasi yang nikmat</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="gorengan.png" alt="Gorengan">
+                        <h3>Gorengan</h3>
+                        <div class="price">Rp 2.000</div>
+                        <p>Gorengan yang renyah&gurih</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="nasirames.png" alt="Nasi rames">
+                        <h3>Nasi rames</h3>
+                        <div class="price">Rp 10.000-16.000</div>
+                        <p>Nasi rames dengan lauk yang nikmat&lezat</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact">
+        <div class="container">
+            <h2>Pesan Sekarang</h2>
+            <p>Hubungi kami untuk pemesanan atau info lebih lanjut.</p>
+            <form>
+                <div class="form-group">
+                    <label for="name">Nama</label>
+                    <input type="text" id="name" placeholder="Nama lengkap" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">No. Telepon</label>
+                    <input type="tel" id="phone" placeholder="08123456789" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="email@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="order">Pesanan</label>
+                    <textarea id="order" placeholder="Contoh: 1 Latte + 1 Croissant" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="address">Alamat (untuk Delivery)</label>
+                    <textarea id="address" placeholder="Alamat lengkap..."></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Kirim Pesanan</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Kopi & Makanan Lezat. All rights reserved.</p>
+            <p>Melayani dengan cinta - Kopi premium, makanan segar, harga terbaik.</p>
+        </div>
+    </footer>
+</body>
+</html>
